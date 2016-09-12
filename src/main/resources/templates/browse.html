@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorator="layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Browse</title>
+</head>
+<body>
+<div data-layout-fragment="content">
+    <h1>File Browser</h1>
+    <ul class="collection">
+        <li class="collection-item avatar" data-th-each="l : ${list}">
+            <i class="material-icons circle">folder</i>
+            <span class="title" data-th-text="${l.name}">Title</span>
+            <p><a data-th-href="@{/browse(path=${l.path})}">Browse</a></p>
+            <a data-th-href="@{/browse/deleteDir(path=${l.path})}" href="#!" class="secondary-content"><i
+                    class="material-icons">delete</i></a>
+        </li>
+    </ul>
+    <ul class="collection">
+        <li class="collection-item avatar" data-th-each="l : ${fileList}">
+            <i class="material-icons circle green">insert_chart</i>
+            <span class="title" data-th-text="${l.name}">Title</span>
+            <p><a data-th-href="'/resources' + ${l.path}">Download</a></p>
+            <a data-th-href="@{/browse/delete(path=${l.path})}" href="#!" class="secondary-content"><i
+                    class="material-icons">delete</i></a>
+        </li>
+    </ul>
+
+
+</div>
+</body>
+</html>
